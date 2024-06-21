@@ -1,11 +1,3 @@
-function incrementScore(scoreId) {
-  const scoreElement = document.getElementById(scoreId)
-  let currentScore = parseInt(scoreElement.innerText)
-  scoreElement.innerText = currentScore + 1
-  updateDisplay(scoreId, currentScore + 1)
-  updateTotalScore(scoreId)
-}
-
 function incrementScoreGreen(scoreId) {
   incrementColorScore(scoreId, 1)
 }
@@ -26,7 +18,7 @@ function incrementColorScore(scoreId, increment) {
   const scoreElement = document.getElementById(scoreId)
   let currentScore = parseInt(scoreElement.innerText)
   scoreElement.innerText = currentScore + increment
-  updateDisplay(scoreId, currentScore + increment)
+  localStorage.setItem(scoreId, currentScore + increment) // Update localStorage here
   updateTotalScore(scoreId)
 }
 
@@ -45,25 +37,17 @@ function updateTotalScore(scoreId) {
     teamTotal += colorScore
   })
   document.getElementById(teamTotalId).innerText = teamTotal
-}
-
-function decrementScore(scoreId) {
-  const scoreElement = document.getElementById(scoreId)
-  let currentScore = parseInt(scoreElement.innerText)
-  if (currentScore > 0) {
-    scoreElement.innerText = currentScore - 1
-    updateDisplay(scoreId, currentScore - 1)
-    updateTotalScore(scoreId)
-  }
+  localStorage.setItem(teamTotalId, teamTotal) // Update localStorage for total score
 }
 
 function resetScores() {
   ;['score1', 'score2'].forEach((team) => {
     document.getElementById(team).innerText = '0'
+    localStorage.setItem(team, '0')
     ;['green', 'purple', 'yellow', 'blue'].forEach((color) => {
       document.getElementById(`${team}${color}`).innerText = '0'
+      localStorage.setItem(`${team}${color}`, '0')
     })
-    updateDisplay(team, 0)
   })
 }
 
@@ -87,8 +71,9 @@ let timeLeft = 1800 // 30 minutes in seconds
 function updateTimerDisplay() {
   const minutes = Math.floor(timeLeft / 60)
   const seconds = timeLeft % 60
-  document.getElementById('timer').innerText = `${minutes}:${seconds.toString().padStart(2, '0')}`
-  localStorage.setItem('timer', document.getElementById('timer').innerText)
+  const timeStr = `${minutes}:${seconds.toString().padStart(2, '0')}`
+  document.getElementById('timer').innerText = timeStr
+  localStorage.setItem('timer', timeStr)
 }
 
 function startTimer() {
