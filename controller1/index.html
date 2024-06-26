@@ -25,20 +25,20 @@
                 <!-- Timer -->
                 <div class="flex flex-col items-center mt-6">
                     <div class="text-xl mb-3 font-mono">Countdown Timer</div>
-                    <div class="text-9xl mb-3 font-mono">180</div>
+                    <div class="countdown-timer text-9xl mb-3 font-mono">---</div>
                     <div class="text-xl mb-3 font-mono">SEC</div>
                 </div>
                 <!-- GameRound -->
                 <div class="flex items-center mt-6 bg-teal-400 w-full justify-between text-white">
-                    <i class="fas fa-arrow-left text-xl mr-4 cursor-pointer ml-4"></i>
-                    <div class=" items-center flex justify-center p-4 text-3xl">Game 1
+                    <i class="fas fa-arrow-left text-xl mr-4 cursor-pointer ml-4" id="game-prev"></i>
+                    <div id="game-number" class="items-center flex justify-center p-4 text-3xl">Game 1
                     </div>
-                    <i class="fas fa-arrow-right text-xl ml-4 cursor-pointer mr-4"></i>
+                    <i class="fas fa-arrow-right text-xl ml-4 cursor-pointer mr-4" id="game-next"></i>
                 </div>
                 <div class="flex gap-4 p-3 w-full">
                     <button
                         class="bg-yellow-400 hover:bg-yellow-300 text-white font-bold py-4 rounded-lg text-xl w-full outline">Batting</button>
-                    <button
+                    <button id="start-game-button"
                         class="bg-yellow-400 hover:bg-yellow-300 text-white font-bold py-4 rounded-lg text-xl w-full outline">Game</button>
                 </div>
                 <div class="flex gap-4 p-3 w-full">
