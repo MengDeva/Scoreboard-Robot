@@ -25,7 +25,7 @@
                 <!-- Timer -->
                 <div class="flex flex-col items-center mt-6">
                     <div class="text-xl mb-3 font-mono">Countdown Timer</div>
-                    <div class="countdown-timer text-9xl mb-3 font-mono">---</div>
+                    <div class="countdown-timer text-9xl mb-3 font-mono" id="displayText">---</div>
                     <div class="text-xl mb-3 font-mono">SEC</div>
                 </div>
                 <!-- GameRound -->
@@ -36,7 +36,7 @@
                     <i class="fas fa-arrow-right text-xl ml-4 cursor-pointer mr-4" id="game-next"></i>
                 </div>
                 <div class="flex gap-4 p-3 w-full">
-                    <button
+                    <button id="batting-button"
                         class="bg-yellow-400 hover:bg-yellow-300 text-white font-bold py-4 rounded-lg text-xl w-full outline">Batting</button>
                     <button id="start-game-button"
                         class="bg-yellow-400 hover:bg-yellow-300 text-white font-bold py-4 rounded-lg text-xl w-full outline">Game</button>
@@ -48,7 +48,7 @@
                         class="bg-yellow-400 hover:bg-yellow-300 text-white font-bold py-4 rounded-lg text-xl w-full outline">Appeal</button>
                 </div>
                 <div class="flex gap-7 p-3">
-                    <button
+                    <button id="reset-all-button"
                         class="bg-yellow-400 hover:bg-yellow-300 text-white font-bold py-4 rounded-lg text-xl outline p-4">Reset
                         All</button>
                 </div>
@@ -63,13 +63,13 @@
                         <h1 class="mb-3 text-4xl">Team 1</h1>
                         <div class="flex flex-col items-center pl-48">
                             <div class="text-md font-bold">Total Score</div>
-                            <div class="text-6xl font-extrabold">0</div>
+                            <div class="text-6xl font-extrabold" id="total-score-team1">0</div>
                         </div>
                     </div>
                     <div class="flex items-center gap-4">
                         <div class="flex flex-col items-center pr-48">
                             <div class="text-md font-bold">Total Score</div>
-                            <div class="text-6xl font-extrabold">0</div>
+                            <div class="text-6xl font-extrabold" id="total-score-team2">0</div>
                         </div>
                         <h1 class="mb-3 text-4xl">Team 2</h1>
                         <img src="/public/Logo.png" alt="Logo" width="130" height="130" class="bg-white">
@@ -226,34 +226,34 @@
                 <div class="p-2 flex items-center flex-col font-mono text-[20px]">Harvesting</div>
                 <div class="flex justify-around items-center p-6 text-slate-50 half-red-half-blue">
                     <div class="flex gap-8 items-center">
-                        <button
+                        <button id="harvesting-minus-team1"
                             class="bg-orange-500 hover:bg-orange-600 text-black font-bold py-5 px-7 rounded text-xl">-</button>
-                        <div class="font-bold text-6xl">0</div>
-                        <button
+                        <div id="harvesting-score-team1" class="font-bold text-6xl">0</div>
+                        <button id="harvesting-plus-team1"
                             class="bg-yellow-400 hover:bg-yellow-700 text-black font-bold py-5 px-7 rounded text-xl">+</button>
                     </div>
                     <div class="flex gap-8 items-center">
-                        <button
+                        <button id="harvesting-minus-team2"
                             class="bg-orange-500 hover:bg-orange-600 text-black font-bold py-5 px-7 rounded text-xl">-</button>
-                        <div class="font-bold text-6xl">0</div>
-                        <button
+                        <div id="harvesting-score-team2" class="font-bold text-6xl">0</div>
+                        <button id="harvesting-plus-team2"
                             class="bg-yellow-400 hover:bg-yellow-700 text-black font-bold py-5 px-7 rounded text-xl">+</button>
                     </div>
                 </div>
                 <div class="p-2 flex items-center flex-col font-mono text-[20px]">Planting</div>
                 <div class="flex justify-around items-center p-6 text-slate-50 half-red-half-blue">
                     <div class="flex gap-8 items-center">
-                        <button
+                        <button id="planting-minus-team1"
                             class="bg-orange-500 hover:bg-orange-600 text-black font-bold py-5 px-7 rounded text-xl">-</button>
-                        <div class="font-bold text-6xl">0</div>
-                        <button
+                        <div id="planting-score-team1" class="font-bold text-6xl">0</div>
+                        <button id="planting-plus-team1"
                             class="bg-yellow-400 hover:bg-yellow-700 text-black font-bold py-5 px-7 rounded text-xl">+</button>
                     </div>
                     <div class="flex gap-8 items-center">
-                        <button
+                        <button id="planting-minus-team2"
                             class="bg-orange-500 hover:bg-orange-600 text-black font-bold py-5 px-7 rounded text-xl">-</button>
-                        <div class="font-bold text-6xl">0</div>
-                        <button
+                        <div id="planting-score-team2" class="font-bold text-6xl">0</div>
+                        <button id="planting-plus-team2"
                             class="bg-yellow-400 hover:bg-yellow-700 text-black font-bold py-5 px-7 rounded text-xl">+</button>
                     </div>
                 </div>
@@ -261,6 +261,7 @@
         </div>
     </section>
     <script src="./script.js"></script>
+    <script src="./ScoreScript.js"></script>
 </body>
 
 </html>
