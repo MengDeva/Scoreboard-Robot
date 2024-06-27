@@ -237,6 +237,17 @@ document.addEventListener('DOMContentLoaded', function () {
     updateScoreDisplays()
   }
 
+  function decrementHarvestingScore(team) {
+    if (team === 1) {
+      harvestingScoreTeam1 = Math.max(harvestingScoreTeam1 - 1, 0)
+      totalScoreTeam1 = Math.max(totalScoreTeam1 - 10, 0)
+    } else if (team === 2) {
+      harvestingScoreTeam2 = Math.max(harvestingScoreTeam2 - 1, 0)
+      totalScoreTeam2 = Math.max(totalScoreTeam2 - 10, 0)
+    }
+    updateScoreDisplays()
+  }
+
   function updateScoreDisplays() {
     plantingScoreTeam1Display.textContent = plantingScoreTeam1
     plantingScoreTeam2Display.textContent = plantingScoreTeam2
