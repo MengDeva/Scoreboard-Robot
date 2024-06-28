@@ -168,22 +168,6 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Unknown game number')
     }
   }
-
-  function startGame1() {
-    console.log('Game 1 logic here')
-    startGameDurationCountdown(180) // Example 180 seconds countdown for Game 1
-  }
-
-  function startGame2() {
-    console.log('Game 2 logic here')
-    startGameDurationCountdown(120) // Example 120 seconds countdown for Game 2
-  }
-
-  function startGame3() {
-    console.log('Game 3 logic here')
-    startGameDurationCountdown(150) // Example 150 seconds countdown for Game 3
-  }
-
   function startGameDurationCountdown(seconds) {
     let remainingTime = seconds
 
