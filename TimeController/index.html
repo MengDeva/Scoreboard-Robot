@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timer App</title>
+    <title>Timer Controller</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .timer-circle {
@@ -19,6 +19,7 @@
             font-weight: bold;
             color: #fff;
         }
+
         .timer-inner {
             background-color: #007bff;
             border-radius: 50%;
@@ -33,7 +34,7 @@
 
 <body class="flex items-center justify-center min-h-screen bg-gray-100">
     <div class="text-center">
-        <h1 class="text-5xl font-bold mb-8">Timer APP</h1>
+        <h1 class="text-5xl font-bold mb-8">Timer Controller</h1>
         <div class="flex justify-around mb-8 gap-5">
             <div class="flex flex-col items-center">
                 <div class="timer-circle mb-4" id="timer1" style="--percentage: 0%;">
@@ -43,6 +44,16 @@
                     <button class="bg-red-500 text-white px-4 py-2 rounded" onclick="stopTimer(1)">STOP</button>
                     <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="startTimer(1, 60)">PLAY</button>
                     <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="resetTimer(1, 60)">RESET</button>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="timer-circle mb-4" id="timer3" style="--percentage: 0%;">
+                    <div class="timer-inner" id="timer3-display">10</div>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="bg-red-500 text-white px-4 py-2 rounded" onclick="stopTimer(3)">STOP</button>
+                    <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="startTimer(3, 10)">PLAY</button>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="resetTimer(3, 10)">RESET</button>
                 </div>
             </div>
             <div class="flex flex-col items-center">
@@ -57,47 +68,66 @@
             </div>
         </div>
     </div>
+
     <script>
         let timers = {};
 
         function startTimer(timerId, duration) {
+            let timeLeft = parseInt(localStorage.getItem('timer' + timerId + 'TimeLeft')) || duration;
+            localStorage.setItem('timer' + timerId + 'TimeLeft', timeLeft);
+            localStorage.setItem('timer' + timerId + 'Running', 'true');
+            if (timerId === 1) {
+                localStorage.setItem('overlayVisible', 'true');
+            }
+
             if (timers[timerId]) clearInterval(timers[timerId]);
 
-            let display = document.getElementById(`timer${timerId}-display`);
-            let circle = document.getElementById(`timer${timerId}`);
-            let timeLeft = duration;
-            let totalDuration = duration;
-
             timers[timerId] = setInterval(() => {
+                timeLeft--;
                 if (timeLeft <= 0) {
                     clearInterval(timers[timerId]);
-                    return;
+                    localStorage.setItem('timer' + timerId + 'Running', 'false');
+                    if (timerId === 1) {
+                        localStorage.setItem('overlayVisible', 'false');
+                    }
                 }
-                timeLeft--;
-                let minutes = Math.floor(timeLeft / 60);
-                let seconds = timeLeft % 60;
-                display.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-                circle.style.setProperty('--percentage', `${(1 - timeLeft / totalDuration) * 100}%`);
+                localStorage.setItem('timer' + timerId + 'TimeLeft', timeLeft);
+                updateLocalTimerDisplay(timerId, timeLeft, duration);
             }, 1000);
         }
 
         function stopTimer(timerId) {
             if (timers[timerId]) clearInterval(timers[timerId]);
+            localStorage.setItem('timer' + timerId + 'Running', 'false');
         }
 
         function resetTimer(timerId, duration) {
             stopTimer(timerId);
-            let display = document.getElementById(`timer${timerId}-display`);
-            let circle = document.getElementById(`timer${timerId}`);
-            let minutes = Math.floor(duration / 60);
-            let seconds = duration % 60;
-            display.textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-            circle.style.setProperty('--percentage', `0%`);
+            localStorage.setItem('timer' + timerId + 'TimeLeft', duration);
+            localStorage.setItem('timer' + timerId + 'Running', 'false');
+            updateLocalTimerDisplay(timerId, duration, duration);
+            if (timerId === 1) {
+                localStorage.setItem('overlayVisible', 'false');
+            }
+        }
+
+        function updateLocalTimerDisplay(timerId, timeLeft, duration) {
+            let percentage = ((duration - timeLeft) / duration) * 100;
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            document.getElementById('timer' + timerId).style.setProperty('--percentage', percentage + '%');
+            document.querySelector('#timer' + timerId + ' .timer-inner').textContent = `${minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
         }
 
         window.onload = function () {
-            resetTimer(1, 60);
-            resetTimer(2, 180);
+            [1, 2].forEach(timerId => {
+                let timeLeft = parseInt(localStorage.getItem('timer' + timerId + 'TimeLeft'), 10) || (timerId === 1 ? 60 : 180);
+                let duration = timerId === 1 ? 60 : 180;
+                updateLocalTimerDisplay(timerId, timeLeft, duration);
+                if (localStorage.getItem('timer' + timerId + 'Running') === 'true') {
+                    startTimer(timerId, duration);
+                }
+            });
         }
     </script>
 </body>

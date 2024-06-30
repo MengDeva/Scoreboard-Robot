@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 let timerInterval
-let timeLeft = 1800 // 30 minutes in seconds
+let timeLeft = 180 // 3 minutes in seconds
 
 function updateTimerDisplay() {
   const minutes = Math.floor(timeLeft / 60)
@@ -97,6 +97,6 @@ function stopTimer() {
 
 function resetTimer() {
   stopTimer()
-  timeLeft = 1800
+  timeLeft = 180
   updateTimerDisplay()
 }
