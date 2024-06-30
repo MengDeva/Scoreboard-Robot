@@ -2,7 +2,7 @@ let displayTimers = {}
 
 function updateTimerDisplay(timerId) {
   let timeLeft = parseInt(localStorage.getItem('timer' + timerId + 'TimeLeft'), 10)
-  let duration = timerId === 1 ? 60 : 180
+  let duration = timerId === 1 ? 10 : 180
   let percentage = ((duration - timeLeft) / duration) * 100
   let minutes = Math.floor(timeLeft / 60)
   let seconds = timeLeft % 60
@@ -38,7 +38,7 @@ function stopDisplayTimer(timerId) {
 }
 
 function closeOverlay() {
-  localStorage.setItem('timer1TimeLeft', 60)
+  localStorage.setItem('timer1TimeLeft', 10)
   localStorage.setItem('timer1Running', 'false')
   localStorage.setItem('overlayVisible', 'false')
   updateTimerDisplay(1)
