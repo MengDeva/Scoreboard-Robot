@@ -38,15 +38,15 @@
         <div class="flex justify-around mb-8 gap-5">
             <div class="flex flex-col items-center">
                 <div class="timer-circle mb-4" id="timer1" style="--percentage: 0%;">
-                    <div class="timer-inner" id="timer1-display">1:00</div>
+                    <div class="timer-inner" id="timer1-display">10</div>
                 </div>
                 <div class="flex space-x-2">
                     <button class="bg-red-500 text-white px-4 py-2 rounded" onclick="stopTimer(1)">STOP</button>
-                    <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="startTimer(1, 60)">PLAY</button>
-                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="resetTimer(1, 60)">RESET</button>
+                    <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="startTimer(1, 10)">PLAY</button>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="resetTimer(1, 10)">RESET</button>
                 </div>
             </div>
-            <div class="flex flex-col items-center">
+            <!-- <div class="flex flex-col items-center">
                 <div class="timer-circle mb-4" id="timer3" style="--percentage: 0%;">
                     <div class="timer-inner" id="timer3-display">10</div>
                 </div>
@@ -55,7 +55,7 @@
                     <button class="bg-green-500 text-white px-4 py-2 rounded" onclick="startTimer(3, 10)">PLAY</button>
                     <button class="bg-blue-500 text-white px-4 py-2 rounded" onclick="resetTimer(3, 10)">RESET</button>
                 </div>
-            </div>
+            </div> -->
             <div class="flex flex-col items-center">
                 <div class="timer-circle mb-4" id="timer2" style="--percentage: 0%;">
                     <div class="timer-inner" id="timer2-display">3:00</div>
@@ -121,8 +121,8 @@
 
         window.onload = function () {
             [1, 2].forEach(timerId => {
-                let timeLeft = parseInt(localStorage.getItem('timer' + timerId + 'TimeLeft'), 10) || (timerId === 1 ? 60 : 180);
-                let duration = timerId === 1 ? 60 : 180;
+                let timeLeft = parseInt(localStorage.getItem('timer' + timerId + 'TimeLeft'), 10) || (timerId === 1 ? 10 : 180);
+                let duration = timerId === 1 ? 10 : 180;
                 updateLocalTimerDisplay(timerId, timeLeft, duration);
                 if (localStorage.getItem('timer' + timerId + 'Running') === 'true') {
                     startTimer(timerId, duration);
