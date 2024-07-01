@@ -1,3 +1,13 @@
+function updateDisplay() {
+  let team1TotalScore = localStorage.getItem('team1TotalScore') || 0
+  let team2TotalScore = localStorage.getItem('team2TotalScore') || 0
+  document.getElementById('team1-total-score').textContent = team1TotalScore
+  document.getElementById('team2-total-score').textContent = team2TotalScore
+}
+
+window.addEventListener('storage', updateDisplay)
+window.onload = updateDisplay
+
 let displayTimers = {}
 
 function updateTimerDisplay(timerId) {
