@@ -9,7 +9,9 @@ function changeColor(columnId, color) {
   const column = document.getElementById(columnId)
   const circles = column.getElementsByClassName('circle')
 
-  for (let circle of circles) {
+  for (let i = circles.length - 1; i >= 0; i--) {
+    // From bottom to top
+    const circle = circles[i]
     if (circle.dataset.color === 'none') {
       updateCircle(circle, color)
       break
@@ -26,7 +28,6 @@ function updateCircle(circle, color) {
   circle.dataset.color = color
   circle.dataset.points = points
   circle.style.backgroundColor = color
-  circle.textContent = points
 
   // Update total score
   totalScore = totalScore - currentPoints + points
@@ -42,7 +43,6 @@ function undoColor(circleId) {
   circle.dataset.color = 'none'
   circle.dataset.points = 0
   circle.style.backgroundColor = '#eee'
-  circle.textContent = '0'
 
   // Update total score
   totalScore -= points
