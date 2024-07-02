@@ -17,9 +17,6 @@
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             margin-bottom: 1rem;
             background-color: #eee;
             transition: background-color 0.3s;
@@ -31,20 +28,29 @@
     <section class="h-full">
         <div class="flex flex-col md:flex-row h-full">
             <!-- Main Content -->
-            <div class="w-full bg-gray-100 text-black h-full border-2 border-black">
+            <div class="w-full bg-gray-100 text-black h-full">
                 <div class="p-2 flex items-center flex-col font-mono text-[20px]">Storage</div>
-                <div class="grid grid-cols-5 gap-4">
-                    <div class="column" id="column1">
-                        <div class="circle" id="circle1-3" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle1-3')">Undo</button>
-                        <div class="circle" id="circle1-2" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle1-2')">Undo</button>
-                        <div class="circle" id="circle1-1" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle1-1')">Undo</button>
-                        <div class="flex justify-between mt-4">
+                <div class="grid grid-cols-5 bg-gray-300 p-5">
+                    <div class="column flex flex-col items-center" id="column1">
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle1-3" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle1-3')"><i class="fas fa-undo"></i></button>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle1-2" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle1-2')"><i class="fas fa-undo"></i></button>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle1-1" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle1-1')"><i class="fas fa-undo"></i></button>
+                        </div>
+                        <div class="flex gap-2">
                             <button class="bg-red-500 text-white px-4 py-2 rounded"
                                 onclick="changeColor('column1', 'red')">Red</button>
                             <button class="bg-blue-500 text-white px-4 py-2 rounded"
@@ -52,68 +58,110 @@
                         </div>
                     </div>
                     <!-- Repeat for other columns (column2 to column5) -->
-                    <div class="column" id="column2">
-                        <div class="circle" id="circle2-3" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle2-3')">Undo</button>
-                        <div class="circle" id="circle2-2" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle2-2')">Undo</button>
-                        <div class="circle" id="circle2-1" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle2-1')">Undo</button>
-                        <div class="flex justify-between mt-4">
+                    <div class="column flex flex-col items-center" id="column2">
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle2-3" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle2-3')"><i class="fas fa-undo"></i></button>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle2-2" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle2-2')"><i class="fas fa-undo"></i></button>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle2-1" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle2-1')"><i class="fas fa-undo"></i></button>
+                        </div>
+
+                        <div class="flex gap-2">
                             <button class="bg-red-500 text-white px-4 py-2 rounded"
                                 onclick="changeColor('column2', 'red')">Red</button>
                             <button class="bg-blue-500 text-white px-4 py-2 rounded"
                                 onclick="changeColor('column2', 'blue')">Blue</button>
                         </div>
                     </div>
-                    <div class="column" id="column3">
-                        <div class="circle" id="circle3-3" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle3-3')">Undo</button>
-                        <div class="circle" id="circle3-2" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle3-2')">Undo</button>
-                        <div class="circle" id="circle3-1" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle3-1')">Undo</button>
-                        <div class="flex justify-between mt-4">
+                    <div class="column flex flex-col items-center" id="column3">
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle3-3" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle3-3')"><i class="fas fa-undo"></i></button>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle3-2" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle3-2')"><i class="fas fa-undo"></i></button>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle3-1" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle3-1')"><i class="fas fa-undo"></i></button>
+                        </div>
+                        <div class="flex items-center space-x-2"></div>
+                        <div class="flex gap-2">
                             <button class="bg-red-500 text-white px-4 py-2 rounded"
                                 onclick="changeColor('column3', 'red')">Red</button>
                             <button class="bg-blue-500 text-white px-4 py-2 rounded"
                                 onclick="changeColor('column3', 'blue')">Blue</button>
                         </div>
                     </div>
-                    <div class="column" id="column4">
-                        <div class="circle" id="circle4-3" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle4-3')">Undo</button>
-                        <div class="circle" id="circle4-2" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle4-2')">Undo</button>
-                        <div class="circle" id="circle4-1" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle4-1')">Undo</button>
-                        <div class="flex justify-between mt-4">
+                    <div class="column flex flex-col items-center" id="column4">
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle4-3" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle4-3')"><i class="fas fa-undo"></i></button>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle4-2" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle4-2')"><i class="fas fa-undo"></i></button>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle4-1" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle4-1')"><i class="fas fa-undo"></i></button>
+                        </div>
+                        <div class="flex gap-2">
                             <button class="bg-red-500 text-white px-4 py-2 rounded"
                                 onclick="changeColor('column4', 'red')">Red</button>
                             <button class="bg-blue-500 text-white px-4 py-2 rounded"
                                 onclick="changeColor('column4', 'blue')">Blue</button>
                         </div>
                     </div>
-                    <div class="column" id="column5">
-                        <div class="circle" id="circle5-3" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle5-3')">Undo</button>
-                        <div class="circle" id="circle5-2" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle5-2')">Undo</button>
-                        <div class="circle" id="circle5-1" data-color="none"></div>
-                        <button class="bg-gray-500 text-white px-2 py-1 rounded mb-2"
-                            onclick="undoColor('circle5-1')">Undo</button>
-                        <div class="flex justify-between mt-4">
+                    <div class="column flex flex-col items-center" id="column5">
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle5-3" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle5-3')"><i class="fas fa-undo"></i></button>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle5-2" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle5-2')"><i class="fas fa-undo"></i></button>
+                        </div>
+
+                        <div class="flex items-center space-x-2">
+                            <div class="circle w-16 h-16 border-2 border-gray-400 rounded-full flex items-center justify-center"
+                                id="circle5-1" data-color="none"></div>
+                            <button class="bg-yellow-300 text-gray-500 px-6 py-4 rounded mb-2"
+                                onclick="undoColor('circle5-1')"><i class="fas fa-undo"></i></button>
+                        </div>
+                        <div class="flex gap-2">
                             <button class="bg-red-500 text-white px-4 py-2 rounded"
                                 onclick="changeColor('column5', 'red')">Red</button>
                             <button class="bg-blue-500 text-white px-4 py-2 rounded"
@@ -125,7 +173,7 @@
                     <h2 class="text-3xl">Red Team Score: <span id="red-score">0</span></h2>
                     <h2 class="text-3xl">Blue Team Score: <span id="blue-score">0</span></h2>
                 </div>
-                <div class="grid grid-cols-5 gap-4 bg-gray-300 p-5">
+                <!-- <div class="grid grid-cols-5 gap-4 bg-gray-300 p-5">
                     <div class="flex flex-col items-center space-y-4">
                         <div class="flex items-center space-x-2">
                             <div
@@ -271,7 +319,7 @@
                                 data-color="blue">Blue</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="p-2 flex items-center flex-col font-mono text-[20px]">Harvesting</div>
                 <div class="flex justify-around items-center p-6 text-slate-50 half-red-half-blue">
                     <div class="flex gap-8 items-center">
