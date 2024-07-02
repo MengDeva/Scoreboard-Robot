@@ -22,23 +22,37 @@
         <div class="object-cover flex items-center justify-center">
             <img src="/public/topheader.png" alt="logo">
         </div>
-        <div class="flex justify-between items-center w-full p-16 text-slate-50 half-red-half-blue shadow-lg">
+        <div class="flex justify-between items-center w-full p-14 half-red-half-blue shadow-lg">
             <div class="flex items-center gap-4">
-                <img src="/public/Logo.png" alt="Logo" width="200" height="200" class="bg-white p-2">
-                <h1 class="mb-3 text-4xl font-bold">Team 1</h1>
+                <img id="team1-logo" src="/public/Logo.png" alt="Logo" width="180" height="180" class="bg-white p-2">
+                <h1 class="text-4xl font-bold outline-none">
+                    <select id="team1-name" class="bg-transparent text-slate-50 outline-none"
+                        onchange="updateTeamInfo('team1')">
+                        <option class="text-black" value="CADT 01,/public/TeamLogo/CADT.png">CADT 01</option>
+                        <option class="text-black" value="CADT 02,/public/TeamLogo/CADT.png">CADT 02</option>
+                        <!-- Add more teams as needed -->
+                    </select>
+                </h1>
             </div>
-            <div class="flex flex-col items-center">
-                <div class="text-4xl font-medium">Total Score</div>
+            <div class="flex flex-col items-center text-slate-50 ">
+                <div class="text-4xl font-medium ">Total Score</div>
                 <div class="text-9xl font-extrabold" id="team1-total-score">0</div>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center text-slate-50 ">
                 <div class="text-4xl font-medium">Total Score</div>
                 <div class="text-9xl font-extrabold" id="team2-total-score">0</div>
             </div>
             <div class="flex items-center gap-4">
-
-                <h1 class="mb-3 text-4xl font-bold">Team 2</h1>
-                <img src="/public/Logo.png" alt="Logo" width="200" height="200" class="bg-white p-2">
+                <h1 class="mb-3 text-4xl font-bold">
+                    <select id="team2-name" class="bg-transparent text-slate-50" onchange="updateTeamInfo('team2')">
+                        <option class="text-black" value="NPIC 01,/public/logo3.png">NPIC 01</option>
+                        <option class="text-black" value="NPIC 02,/public/logo4.png">NPIC 02</option>
+                        <option class="text-black" value="CADT 01,/public/TeamLogo/CADT.png">CADT 01</option>
+                        <option class="text-black" value="CADT 02,/public/TeamLogo/CADT.png">CADT 02</option>
+                        <!-- Add more teams as needed -->
+                    </select>
+                </h1>
+                <img id="team2-logo" src="/public/Logo.png" alt="Logo" width="180" height="180" class="bg-white p-2">
             </div>
         </div>
         <div class="flex items-center justify-center w-full">

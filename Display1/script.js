@@ -1,3 +1,33 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // Load team info from local storage
+  const team1Info = localStorage.getItem('team1')
+  const team2Info = localStorage.getItem('team2')
+
+  if (team1Info) {
+    const [name, logo] = team1Info.split(',')
+    document.getElementById('team1-name').value = team1Info
+    document.getElementById('team1-logo').src = logo
+  }
+
+  if (team2Info) {
+    const [name, logo] = team2Info.split(',')
+    document.getElementById('team2-name').value = team2Info
+    document.getElementById('team2-logo').src = logo
+  }
+})
+
+function updateTeamInfo(team) {
+  const selectElement = document.getElementById(`${team}-name`)
+  const selectedValue = selectElement.value
+  const [name, logo] = selectedValue.split(',')
+
+  // Update logo
+  document.getElementById(`${team}-logo`).src = logo
+
+  // Store in local storage
+  localStorage.setItem(team, selectedValue)
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   function updateDisplayScores() {
     const team1TotalScore = localStorage.getItem('team1TotalScore') || 0
