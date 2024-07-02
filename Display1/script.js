@@ -1,14 +1,14 @@
-function updateDisplay() {
-  let team1TotalScore = localStorage.getItem('team1TotalScore') || 0
-  let team2TotalScore = localStorage.getItem('team2TotalScore') || 0
-  document.getElementById('team1-total-score').textContent = team1TotalScore
-  document.getElementById('team2-total-score').textContent = team2TotalScore
-}
+document.addEventListener('DOMContentLoaded', function () {
+  function updateDisplayScores() {
+    const team1TotalScore = localStorage.getItem('team1TotalScore') || 0
+    const team2TotalScore = localStorage.getItem('team2TotalScore') || 0
 
-window.addEventListener('storage', updateDisplay)
-window.onload = updateDisplay
+    document.getElementById('team1-total-score').innerText = team1TotalScore
+    document.getElementById('team2-total-score').innerText = team2TotalScore
+  }
 
-let displayTimers = {}
+  setInterval(updateDisplayScores, 1000)
+})
 
 function updateTimerDisplay(timerId) {
   let timeLeft = parseInt(localStorage.getItem('timer' + timerId + 'TimeLeft'), 10)
