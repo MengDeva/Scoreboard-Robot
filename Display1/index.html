@@ -19,21 +19,17 @@
 
 <body class="h-screen">
     <section class="h-full flex flex-col">
-        <div class="object-cover flex items-center justify-center p-4">
+        <div class="object-cover flex items-center justify-center">
             <img src="/public/topheader.png" alt="logo">
         </div>
-        <div class="flex justify-between items-center w-full p-6 half-red-half-blue shadow-lg h-64">
+        <div class="flex justify-between items-center w-full p-14 half-red-half-blue shadow-lg">
             <div class="flex items-center gap-4">
-                <img id="team1-logo" src="/public/Logo.png" alt="Logo" width="180" height="180" class=" p-2 w-36">
+                <img id="team1-logo" src="/public/Logo.png" alt="Logo" width="180" height="180" class="bg-white p-2">
                 <h1 class="text-4xl font-bold outline-none">
                     <select id="team1-name" class="bg-transparent text-slate-50 outline-none"
                         onchange="updateTeamInfo('team1')">
                         <option class="text-black" value="CADT 01,/public/TeamLogo/CADT.png">CADT 01</option>
                         <option class="text-black" value="CADT 02,/public/TeamLogo/CADT.png">CADT 02</option>
-                        <option class="text-black" value="NPIC 01,/public/TeamLogo/NPIC.png">NPIC 01</option>
-                        <option class="text-black" value="NPIC 02,/public/TeamLogo/NPIC.png">NPIC 02</option>
-                        <option class="text-black" value="NTTI 01,/public/TeamLogo/NTTI.png">NPIC 01</option>
-                        <option class="text-black" value="NTTI 02,/public/TeamLogo/NTTI.png">NPIC 02</option>
                         <!-- Add more teams as needed -->
                     </select>
                 </h1>
@@ -47,22 +43,20 @@
                 <div class="text-9xl font-extrabold" id="team2-total-score">0</div>
             </div>
             <div class="flex items-center gap-4">
-                <h1 class="text-4xl font-bold">
-                    <select id="team2-name" class="bg-transparent text-slate-50 " onchange="updateTeamInfo('team2')">
+                <h1 class="mb-3 text-4xl font-bold">
+                    <select id="team2-name" class="bg-transparent text-slate-50" onchange="updateTeamInfo('team2')">
+                        <option class="text-black" value="NPIC 01,/public/logo3.png">NPIC 01</option>
+                        <option class="text-black" value="NPIC 02,/public/logo4.png">NPIC 02</option>
                         <option class="text-black" value="CADT 01,/public/TeamLogo/CADT.png">CADT 01</option>
                         <option class="text-black" value="CADT 02,/public/TeamLogo/CADT.png">CADT 02</option>
-                        <option class="text-black" value="NPIC 01,/public/TeamLogo/NPIC.png">NPIC 01</option>
-                        <option class="text-black" value="NPIC 02,/public/TeamLogo/NPIC.png">NPIC 02</option>
-                        <option class="text-black" value="NTTI 01,/public/TeamLogo/NTTI.png">NPIC 01</option>
-                        <option class="text-black" value="NTTI 02,/public/TeamLogo/NTTI.png">NPIC 02</option>
                         <!-- Add more teams as needed -->
                     </select>
                 </h1>
-                <img id="team2-logo" src="/public/Logo.png" alt="Logo" width="180" height="180" class=" p-2 w-36">
+                <img id="team2-logo" src="/public/Logo.png" alt="Logo" width="180" height="180" class="bg-white p-2">
             </div>
         </div>
         <div class="flex items-center justify-center w-full">
-            <div class="bg-orange-500 text-white text-[195px] font-bold px-8 py-4 shadow-lg w-full items-center flex flex-col"
+            <div class="bg-orange-500 text-white text-[120px] font-bold px-8 py-4 shadow-lg w-full items-center flex flex-col"
                 id="timer2-display">
                 <div class="timer-inner">3:00</div>
             </div>
@@ -72,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-5 gap-8 bg-gray-300 p-20 shadow-lg">
+        <div class="grid grid-cols-5 gap-4 bg-gray-300 p-10 shadow-lg">
             <div class="flex flex-col items-center space-y-4">
                 <div class="flex items-center space-x-2">
                     <div
